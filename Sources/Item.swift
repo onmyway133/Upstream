@@ -1,9 +1,12 @@
-//
-//  Item.swift
-//  Upstream
-//
-//  Created by Khoa Pham on 05.02.2018.
-//  Copyright © 2018 hyperoslo. All rights reserved.
-//
+import UIKit
 
-import Foundation
+/// Cell
+public struct Item<T> {
+  let model: T
+  let cellType: UIView.Type
+
+  public init(model: T, cellType: UIView.Type) {
+    self.model = model
+    self.cellType = cellType
+  }
+}

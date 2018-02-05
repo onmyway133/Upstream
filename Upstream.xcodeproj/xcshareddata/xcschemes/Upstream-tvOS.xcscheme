@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0920"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D284B1171F79039F00D94AF3"
-               BuildableName = "Upstream_watchOS.framework"
-               BlueprintName = "Upstream-watchOS"
+               BlueprintIdentifier = "D284B0FB1F79038B00D94AF3"
+               BuildableName = "Upstream.framework"
+               BlueprintName = "Upstream-tvOS"
                ReferencedContainer = "container:Upstream.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284B1171F79039F00D94AF3"
-            BuildableName = "Upstream_watchOS.framework"
-            BlueprintName = "Upstream-watchOS"
+            BlueprintIdentifier = "D284B0FB1F79038B00D94AF3"
+            BuildableName = "Upstream.framework"
+            BlueprintName = "Upstream-tvOS"
             ReferencedContainer = "container:Upstream.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284B1171F79039F00D94AF3"
-            BuildableName = "Upstream_watchOS.framework"
-            BlueprintName = "Upstream-watchOS"
+            BlueprintIdentifier = "D284B0FB1F79038B00D94AF3"
+            BuildableName = "Upstream.framework"
+            BlueprintName = "Upstream-tvOS"
             ReferencedContainer = "container:Upstream.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

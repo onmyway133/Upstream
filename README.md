@@ -28,6 +28,17 @@ Using a framework gives you a boost at the start, but it also limits you in many
 
 ### Plan
 
+`Upstream` is based on minion `Service` classes that you can use for many boring tasks
+
+- [x] RegistryService: auto checks and registers cells if needed
+- [ ] DeepService: performs diff on your model changes so `UITablView, UICollectionView` gets reredendered nicely. 
+- [ ] PaginationService: handles load more and pagination
+- [ ] StateService: handles empty, loading, content, error states
+
+Also, there are some layout that we need often
+
+- [ ] CarouselCell: used for carousel inside a list
+
 ## Usage
 
 ### Section and Item

@@ -43,7 +43,7 @@ Also, there are some layout that we need often
 
 ### Section and Item
 
-Usually we get json data, parse it to model and use that model to drive the cell. In fact, what we really need is to map `model -> cell`, or "I want to show this cell for this model"
+Usually we get json data, parse it to model and use that model to drive the cell. In fact, what we really need is to map `model -> cell`, or "I want to show this model using this cell"
 
 The core concept of `Upstream` is `UI = f(model)`. The model is a collection of sections
 

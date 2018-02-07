@@ -57,7 +57,7 @@ public struct Section<T> {
 
 Each section can container either header, footer and a collection of items.
 
-```
+```swift
 public struct Item<T> {
   let model: T
   let cellType: UIView.Type

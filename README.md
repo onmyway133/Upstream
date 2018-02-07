@@ -13,7 +13,7 @@ Arguably one of the first things we learn about iOS development is rendering a l
 
 Using a framework gives you a boost at the start, but it also limits you in many ways. Using `UITableView`, `UICollectionView` is absolutely the right choice as sometimes we need just that. But think about that for a minute, most of the times we just need to do `UITableView, UICollectionView` right with little effort, especially when it comes to data with multiple sections and cell types.
 
-`Upstream` is a very in that guides you to implement declarative and type safe data source. It's inspired by [React](https://reactjs.org/) in that the source of truth comes from the model, and the cells are just representation of that.
+`Upstream` is lightweight and guides you to implement declarative and type safe data source. It's inspired by [React](https://reactjs.org/) in that the source of truth comes from the model, and the cells are just representation of that.
 
 `Upstream` is generic and should not limit you in any ways. If you don't like it, just implement your own `DataSource` class.
 

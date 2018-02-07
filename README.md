@@ -111,7 +111,7 @@ let sections: [Section<Model>] = [
     header: Header(model: .header("Skills"), viewType: HeaderView.self),
     items: [
       Item(model: .skill("iOS"), cellType: SkillCell.self),
-      Item(model: .name("Android"), cellType: SkillCell.self)
+      Item(model: .skill("Android"), cellType: SkillCell.self)
     ]
   )
 ]

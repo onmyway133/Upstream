@@ -34,6 +34,7 @@ Using a framework gives you a boost at the start, but it also limits you in many
 - [ ] DiffService: performs diff on your model changes so `UITablView, UICollectionView` gets reredendered nicely. 
 - [ ] PaginationService: handles load more and pagination
 - [ ] StateService: handles empty, loading, content, error states
+- [ ] AccordionService: expands, collapses sections and cells
 
 Also, there are some layout that we need often
 

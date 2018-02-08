@@ -39,6 +39,7 @@ Using a framework gives you a boost at the start, but it also limits you in many
 Also, there are some layout that we need often
 
 - [ ] CarouselCell: used for carousel inside a list
+- [ ] PlaceholderCell: show placeholder for remote content
 
 ## Usage
 

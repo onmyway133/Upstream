@@ -3,7 +3,7 @@ import UIKit
 public protocol ManagerDelegate: class {
 
   /// Apply model to view
-  func configure(model: Any, view: UIView)
+  func configure(model: Any, view: UIView, indexPath: IndexPath)
 
   /// Handle view selection
   func select(model: Any)
@@ -53,7 +53,7 @@ UITableViewDataSource, UITableViewDelegate {
       withReuseIdentifier: item.cellType.typeName,
       for: indexPath)
 
-    delegate?.configure(model: item.model, view: cell)
+    delegate?.configure(model: item.model, view: cell, indexPath: indexPath)
 
     return cell
   }
@@ -72,7 +72,7 @@ UITableViewDataSource, UITableViewDelegate {
         for: indexPath
       )
 
-      delegate?.configure(model: header.model, view: view)
+      delegate?.configure(model: header.model, view: view, indexPath: indexPath)
       return view
     } else if let footer = sections[indexPath.section].footer,
       kind == UICollectionElementKindSectionFooter {
@@ -83,7 +83,7 @@ UITableViewDataSource, UITableViewDelegate {
         for: indexPath
       )
 
-      delegate?.configure(model: footer.model, view: view)
+      delegate?.configure(model: footer.model, view: view, indexPath: indexPath)
       return view
     } else {
       let view = DummyReusableView()
@@ -184,7 +184,7 @@ UITableViewDataSource, UITableViewDelegate {
       for: indexPath
     )
 
-    delegate?.configure(model: item.model, view: cell)
+    delegate?.configure(model: item.model, view: cell, indexPath: indexPath)
 
     return cell
   }
@@ -239,7 +239,7 @@ UITableViewDataSource, UITableViewDelegate {
       return nil
     }
 
-    delegate?.configure(model: header.model, view: view)
+    delegate?.configure(model: header.model, view: view, indexPath: IndexPath(row: 0, section: section))
     return view
   }
 
@@ -252,7 +252,7 @@ UITableViewDataSource, UITableViewDelegate {
       return nil
     }
 
-    delegate?.configure(model: footer.model, view: view)
+    delegate?.configure(model: footer.model, view: view, indexPath: IndexPath(row: 0, section: section))
     return view
   }
 }

@@ -7,7 +7,7 @@ class RegistryService {
     sections.forEach { section in
       if let header = section.header, !registeredTypes.contains(header.viewType.typeName) {
 
-        if header.viewType == UICollectionReusableView.self {
+        if header.viewType.isSubclass(of: UICollectionReusableView.self) {
           collectionView?.register(
             header.viewType,
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
@@ -15,7 +15,7 @@ class RegistryService {
           )
         }
 
-        if header.viewType == UITableViewHeaderFooterView.self {
+        if header.viewType.isSubclass(of: UITableViewHeaderFooterView.self) {
           tableView?.register(
             header.viewType,
             forHeaderFooterViewReuseIdentifier: header.viewType.typeName
@@ -26,7 +26,7 @@ class RegistryService {
       }
 
       if let footer = section.footer, !registeredTypes.contains(footer.viewType.typeName) {
-        if footer.viewType == UICollectionReusableView.self {
+        if footer.viewType.isSubclass(of: UICollectionReusableView.self) {
           collectionView?.register(
             footer.viewType,
             forSupplementaryViewOfKind: UICollectionElementKindSectionFooter,
@@ -34,7 +34,7 @@ class RegistryService {
           )
         }
 
-        if footer.viewType == UITableViewHeaderFooterView.self {
+        if footer.viewType.isSubclass(of: UITableViewHeaderFooterView.self) {
           tableView?.register(
             footer.viewType,
             forHeaderFooterViewReuseIdentifier: footer.viewType.typeName
@@ -47,14 +47,14 @@ class RegistryService {
       section.items.forEach { item in
         if !registeredTypes.contains(item.cellType.typeName) {
 
-          if item.cellType == UICollectionViewCell.self {
+          if item.cellType.isSubclass(of: UICollectionViewCell.self) {
             collectionView?.register(
               item.cellType,
               forCellWithReuseIdentifier: item.cellType.typeName
             )
           }
 
-          if item.cellType == UITableViewCell.self {
+          if item.cellType.isSubclass(of: UITableViewCell.self) {
             tableView?.register(
               item.cellType,
               forCellReuseIdentifier: item.cellType.typeName

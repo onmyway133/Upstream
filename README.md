@@ -137,7 +137,7 @@ If you don't like switch case, you can make your `Model` as protocol instead of 
 
 ```swift
 extension ProfileViewController: ManagerDelegate {
-  func configure(model: Any, view: UIView) {
+  func configure(model: Any, view: UIView, indexPath: IndexPath) {
     guard let model = model as? Model else {
       return
     }

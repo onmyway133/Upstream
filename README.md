@@ -84,15 +84,15 @@ class ProfileViewController: UIViewController {
 }
 ```
 
-### Step 2: Manager
+### Step 2: Adapter
 
-`Manager` is the class that handles Data Source and Delegate methods. It is `open` so that you can override and add new stuff if you like
+`Adapter` is the class that handles Data Source and Delegate methods. It is `open` so that you can override and add new stuff if you like
 
 ```swift
-let manager = Manager<Model>(tableView: tableView)
-manager.delegate = self
-tableView.dataSource = manager
-tableView.delegate = manager
+let adapter = Adapter<Model>(tableView: tableView)
+adapter.delegate = self
+tableView.dataSource = adapter
+tableView.delegate = adapter
 ```
 
 ### Step 3: Section
@@ -118,10 +118,10 @@ let sections: [Section<Model>] = [
   )
 ]
 
-manager.reload(sections: sections)
+adapter.reload(sections: sections)
 ```
 
-Just call `manager.reload`. Your header, footer, cell types are automatically registered and reloaded.
+Just call `adapter.reload`. Your header, footer, cell types are automatically registered and reloaded.
 
 ### Step 4: Delegate
 
@@ -136,7 +136,7 @@ These are universal for header, footer, cells. Due to generic protocol not be ab
 If you don't like switch case, you can make your `Model` as protocol instead of enum.
 
 ```swift
-extension ProfileViewController: ManagerDelegate {
+extension ProfileViewController: AdapterDelegate {
   func configure(model: Any, view: UIView, indexPath: IndexPath) {
     guard let model = model as? Model else {
       return
@@ -186,6 +186,34 @@ extension ProfileViewController: ManagerDelegate {
   }
 }
 
+```
+
+### Customisation
+
+`Upstream` is meant to help you with the basic most common things. In case you need some more customisations, you can just override the behaviors, since `Manager` is `open`
+
+Below is how you implement your own accordion `UITableView, UICollectionView` that expands and collapses sections
+
+```swift
+class AccordionManager<T>: Manager<T> {
+  private var collapsedSections = Set<Int>()
+ 
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return collapsedSections.contains(section)
+      ? 0 : sections[section].items.count
+  }
+ 
+  func toggle(section: Int) {
+    if collapsedSections.contains(section) {
+      collapsedSections.remove(section)
+    } else {
+      collapsedSections.insert(section)
+    }
+ 
+    let indexSet = IndexSet(integer: section)
+    tableView?.reloadSections(indexSet, with: .automatic)
+  }
+}
 ```
 
 ## Installation

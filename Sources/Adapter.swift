@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ManagerDelegate: class {
+public protocol AdapterDelegate: class {
 
   /// Apply model to view
   func configure(model: Any, view: UIView, indexPath: IndexPath)
@@ -13,14 +13,14 @@ public protocol ManagerDelegate: class {
 }
 
 /// Act as DataSource and Delegate for UICollectionView, UITableView
-open class Manager<T>: NSObject,
+open class Adapter<T>: NSObject,
   UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
 UITableViewDataSource, UITableViewDelegate {
 
   public var sections: [Section<T>] = []
   public weak var collectionView: UICollectionView?
   public weak var tableView: UITableView?
-  public weak var delegate: ManagerDelegate?
+  public weak var delegate: AdapterDelegate?
 
   let registryService = RegistryService()
 

@@ -15,15 +15,13 @@ Using a framework gives you a boost at the start, but it also limits you in many
 
 `Upstream` is lightweight and guides you to implement declarative and type safe data source. It's inspired by [React](https://reactjs.org/) in that the source of truth comes from the model, and the cells are just representation of that.
 
-`Upstream` is generic and should not limit you in any ways. If you don't like it, just implement your own `DataSource` class.
+`Upstream` exposes the convenient methods we need the most `configure, select, size` methods, while allows us to override or implement methods we want. It provides needed abstraction and does not limit you in any way.
 
 ### Features
 
 - Works on both `UITableView` and `UICollectionView`
 - Separation of concern
-- Generic
 - Type safed
-- Expose convenient `configure, select, size` methods
 - Just manage Data Source and Delegate, keep your `UITableView` and `UICollectionView` intact
 
 ### Plan
@@ -50,18 +48,18 @@ Usually we get json data, parse it to model and use that model to drive the cell
 The core concept of `Upstream` is `UI = f(model)`. The model is a collection of sections
 
 ```swift
-public struct Section<T> {
-  let header: Header<T>?
-  let items: [Item<T>]
-  let footer: Footer<T>?
+public struct Section {
+  let header: Header?
+  let items: [Item]
+  let footer: Footer?
 }
 ```
 
 Each section can container either header, footer and a collection of items.
 
 ```swift
-public struct Item<T> {
-  let model: T
+public struct Item {
+  let model: Any
   let cellType: UIView.Type
 }
 ```
@@ -89,7 +87,7 @@ class ProfileViewController: UIViewController {
 `Adapter` is the class that handles Data Source and Delegate methods. It is `open` so that you can override and add new stuff if you like
 
 ```swift
-let adapter = Adapter<Model>(tableView: tableView)
+let adapter = Adapter(tableView: tableView)
 adapter.delegate = self
 tableView.dataSource = adapter
 tableView.delegate = adapter
@@ -100,20 +98,20 @@ tableView.delegate = adapter
 Each section will map to a section in `UITableView, UICollectionView`
 
 ```swift
-let sections: [Section<Model>] = [
+let sections: [Section] = [
   Section(
-    header: Header(model: .header("Information"), viewType: HeaderView.self),
+    header: Header(model: Model.header("Information"), viewType: HeaderView.self),
     items: [
-      Item(model: .avatar(avatarUrl), cellType: AvatarCell.self),
-      Item(model: .name("Thor"), cellType: NameCell.self),
-      Item(model: .location("Asgard"), cellType: NameCell.self)
+      Item(model: Model.avatar(avatarUrl), cellType: AvatarCell.self),
+      Item(model: Model.name("Thor"), cellType: NameCell.self),
+      Item(model: Model.location("Asgard"), cellType: NameCell.self)
     ]
   ),
   Section(
-    header: Header(model: .header("Skills"), viewType: HeaderView.self),
+    header: Header(model: Model.header("Skills"), viewType: HeaderView.self),
     items: [
-      Item(model: .skill("iOS"), cellType: SkillCell.self),
-      Item(model: .skill("Android"), cellType: SkillCell.self)
+      Item(model: Model.skill("iOS"), cellType: SkillCell.self),
+      Item(model: Model.skill("Android"), cellType: SkillCell.self)
     ]
   )
 ]

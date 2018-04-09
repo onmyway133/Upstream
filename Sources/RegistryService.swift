@@ -3,7 +3,7 @@ import UIKit
 class RegistryService {
   private var registeredTypes = Set<String>()
 
-  func registerIfNeeded<T>(collectionView: UICollectionView?, tableView: UITableView?, sections: [Section<T>]) {
+  func registerIfNeeded(collectionView: UICollectionView?, tableView: UITableView?, sections: [Section]) {
     sections.forEach { section in
       if let header = section.header, !registeredTypes.contains(header.viewType.typeName) {
 

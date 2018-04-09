@@ -1,12 +1,12 @@
 import UIKit
 
 /// Section
-public struct Section<T> {
-  public let header: Header<T>?
-  public let items: [Item<T>]
-  public let footer: Footer<T>?
+public struct Section {
+  public let header: Header?
+  public let items: [Item]
+  public let footer: Footer?
 
-  public init(header: Header<T>? = nil, items: [Item<T>], footer: Footer<T>? = nil) {
+  public init(header: Header? = nil, items: [Item], footer: Footer? = nil) {
     self.header = header
     self.items = items
     self.footer = footer

@@ -1,11 +1,11 @@
 import UIKit
 
 /// Section footer
-public struct Footer<T> {
-  let model: T
+public struct Footer {
+  let model: Any
   let viewType: UIView.Type
 
-  public init(model: T, viewType: UIView.Type) {
+  public init(model: Any, viewType: UIView.Type) {
     self.model = model
     self.viewType = viewType
   }

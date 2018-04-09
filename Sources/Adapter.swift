@@ -13,11 +13,11 @@ public protocol AdapterDelegate: class {
 }
 
 /// Act as DataSource and Delegate for UICollectionView, UITableView
-open class Adapter<T>: NSObject,
+open class Adapter: NSObject,
   UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
 UITableViewDataSource, UITableViewDelegate {
 
-  public var sections: [Section<T>] = []
+  public var sections: [Section] = []
   public weak var collectionView: UICollectionView?
   public weak var tableView: UITableView?
   public weak var delegate: AdapterDelegate?
@@ -154,7 +154,7 @@ UITableViewDataSource, UITableViewDelegate {
 
   // MARK: - Reload
 
-  open func reload(sections: [Section<T>]) {
+  open func reload(sections: [Section]) {
     // Registry
     registryService.registerIfNeeded(
       collectionView: collectionView,

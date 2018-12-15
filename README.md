@@ -234,7 +234,11 @@ github "hyperoslo/Upstream"
 
 ## Author
 
-hyperoslo, ios@hyper.no
+- Khoa Pham, onmyway133@gmai.com
+
+## Credit
+
+- Hyper Interaktiv AS, ios@hyper.no
 
 ## Contributing
 
